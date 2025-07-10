@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/alan-jolly-portfolio/static/css/main.e6c13ad2.css",
+    "main.js": "/alan-jolly-portfolio/static/js/main.90c7e571.js",
+    "static/js/453.c25a47ea.chunk.js": "/alan-jolly-portfolio/static/js/453.c25a47ea.chunk.js",
+    "index.html": "/alan-jolly-portfolio/index.html",
+    "main.e6c13ad2.css.map": "/alan-jolly-portfolio/static/css/main.e6c13ad2.css.map",
+    "main.90c7e571.js.map": "/alan-jolly-portfolio/static/js/main.90c7e571.js.map",
+    "453.c25a47ea.chunk.js.map": "/alan-jolly-portfolio/static/js/453.c25a47ea.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.90c7e571.js"
+  ]
+}
