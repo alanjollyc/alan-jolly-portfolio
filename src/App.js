@@ -6,20 +6,23 @@ const useInView = (options) => {
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
+    // Capture the current ref value inside the effect to avoid ESLint warning
+    const currentRef = ref.current;
+
     const observer = new IntersectionObserver(([entry]) => {
       setInView(entry.isIntersecting);
     }, options);
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (currentRef) { // Use the captured value
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) { // Use the captured value in cleanup
+        observer.unobserve(currentRef);
       }
     };
-  }, [options]);
+  }, [options]); // options is a stable prop, so it's fine here
 
   return [ref, inView];
 };
@@ -177,12 +180,16 @@ const App = () => {
             </a>
           </div>
 
-          {/* Animated GIF of a computer in the bottom right, moved up and left */}
-          <img
-            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM251c2g5bXF6a2Fud2Q1c3N6c2F6c2Z1c2t3a2Rzb21pZzdmYTZiZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlSDuQ0zQ0F2Q0g/giphy.gif"
+          {/* Animated Video of a computer in the bottom right, moved up and left */}
+          <video
+            src="src\original-c3a28d84c02f638f8bbcf78c82049ffc.mp4" // Placeholder video URL - REPLACE THIS!
             alt="Animated Computer"
-            className="absolute bottom-16 right-16 z-10 w-64 h-auto opacity-70 hidden md:block lg:w-80" /* Moved up (bottom-16) and left (right-16), z-10 for prominence */
+            className="absolute bottom-16 right-16 z-10 w-64 h-auto opacity-70 hidden md:block lg:w-80" /* Adjust size and visibility */
             style={{ transform: 'rotateY(180deg)' }} /* Optional: Flip horizontally if needed */
+            autoPlay
+            loop
+            muted
+            playsInline // Important for autoplay on mobile
           />
         </section>
 
