@@ -25,14 +25,13 @@
         .font-vt323 {
             font-family: 'VT323', monospace;
         }
+        /* Adjusted neon text for better visibility on lighter backgrounds */
         .neon-text {
-            color: #00FFFF; /* Cyan neon color */
+            color: #008080; /* Darker teal for better contrast */
             text-shadow:
+                0 0 2px #00FFFF,
                 0 0 5px #00FFFF,
-                0 0 10px #00FFFF,
-                0 0 20px #00FFFF,
-                0 0 40px #00FFFF,
-                0 0 80px #00FFFF;
+                0 0 10px #00FFFF;
         }
 
         /* Animation for sections fading in and sliding up */
@@ -47,7 +46,7 @@
             transform: translateY(0);
         }
 
-        /* Hero section subtle background animation */
+        /* Hero section subtle background animation - adjusted for light theme */
         @keyframes gradient-shift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -55,7 +54,8 @@
         }
 
         .animated-hero-bg {
-            background: linear-gradient(270deg, #1a1a1a, #0a192f, #1a1a1a);
+            /* Lighter gradient for light theme */
+            background: linear-gradient(270deg, #e0e0e0, #f0f0f0, #e0e0e0);
             background-size: 200% 200%;
             animation: gradient-shift 15s ease infinite;
         }
@@ -66,7 +66,8 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-gray-900 text-gray-100 font-roboto">
+<!-- Changed body background to very light gray and text to dark gray -->
+<body class="min-h-screen bg-gray-100 text-gray-800 font-roboto">
     <div id="root"></div>
 
     <script type="text/babel">
@@ -120,13 +121,13 @@
                     {
                         title: "StudySync – AI-Powered Group Study Platform",
                         description: "Developed real-time study rooms with chat, presence indicators, GPT-powered quiz generation, and gamified study modes. Implemented using React, Firebase, and OpenAI APIs.",
-                        image: "https://placehold.co/400x250/333333/FFFFFF?text=StudySync+Project",
+                        image: "https://placehold.co/400x250/E0E0E0/333333?text=StudySync+Project", /* Adjusted placeholder for light theme */
                         link: "#"
                     },
                     {
                         title: "OCR Calculator",
                         description: "Designed a camera-based calculator using Python, OpenCV, and Tesseract OCR. Enabled real-time detection and solving of handwritten equations.",
-                        image: "https://placehold.co/400x250/333333/FFFFFF?text=OCR+Calculator+Project",
+                        image: "https://placehold.co/400x250/E0E0E0/333333?text=OCR+Calculator+Project", /* Adjusted placeholder for light theme */
                         link: "#"
                     }
                 ],
@@ -151,43 +152,49 @@
             const [contactRef, contactInView] = useInView({ threshold: 0.1 });
 
             return (
-                <div className="min-h-screen bg-gray-900 text-gray-100 font-roboto">
-                    <header className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 z-50 shadow-lg py-4 px-8 md:px-16 flex flex-col md:flex-row justify-between items-center rounded-b-xl">
+                <div className="min-h-screen bg-gray-100 text-gray-800 font-roboto">
+                    {/* Header background changed to white, nav links adjusted for light theme */}
+                    <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 z-50 shadow-lg py-4 px-8 md:px-16 flex flex-col md:flex-row justify-between items-center rounded-b-xl">
                         <div className="text-2xl md:text-3xl font-vt323 neon-text mb-4 md:mb-0">
                             {resumeData.name}
                         </div>
                         <nav>
                             <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-lg">
-                                <li><a href="#projects" className="hover:text-teal-400 transition-colors duration-300">Projects</a></li>
-                                <li><a href="#skills" className="hover:text-teal-400 transition-colors duration-300">Skills</a></li>
-                                <li><a href="#about" className="hover:text-teal-400 transition-colors duration-300">About Me</a></li>
-                                <li><a href="path/to/your_resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors duration-300">Resume</a></li>
-                                <li><a href="#contact" className="hover:text-teal-400 transition-colors duration-300">Contact</a></li>
+                                {/* Nav links changed from text-teal-400 to text-gray-600 with teal hover */}
+                                <li><a href="#projects" className="text-gray-600 hover:text-teal-500 transition-colors duration-300">Projects</a></li>
+                                <li><a href="#skills" className="text-gray-600 hover:text-teal-500 transition-colors duration-300">Skills</a></li>
+                                <li><a href="#about" className="text-gray-600 hover:text-teal-500 transition-colors duration-300">About Me</a></li>
+                                <li><a href="path/to/your_resume.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-teal-500 transition-colors duration-300">Resume</a></li>
+                                <li><a href="#contact" className="text-gray-600 hover:text-teal-500 transition-colors duration-300">Contact</a></li>
                             </ul>
                         </nav>
                     </header>
 
                     <main className="pt-24">
-                        <section id="hero" className="relative flex items-center justify-center min-h-[calc(100vh-6rem)] py-16 px-8 md:px-16 text-center md:text-left">
-                            <div className="absolute inset-0 animated-hero-bg opacity-70"></div>
-                            <div className="absolute inset-0 bg-black opacity-40"></div>
+                        {/* Hero Section background adjusted for light theme */}
+                        <section id="hero" className="relative flex items-center justify-center min-h-[calc(100vh-6rem)] py-16 px-8 md:px-16 text-center md:text-left
+                                    bg-gray-100"> {/* Base background for hero */}
+                            {/* Animated gradient overlay adjusted for light theme */}
+                            <div className="absolute inset-0 animated-hero-bg opacity-40"></div> {/* Reduced opacity */}
+                            {/* Removed static black overlay as it's not needed for light theme */}
                             <div className="max-w-4xl mx-auto z-10">
-                                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight mb-4 text-white">
-                                    Hi, I'm <span className="text-teal-400">Alan</span>
+                                {/* Text colors adjusted for light theme */}
+                                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight mb-4 text-gray-900">
+                                    Hi, I'm <span className="text-teal-600">Alan</span> {/* Teal accent slightly darker */}
                                 </h1>
-                                <p className="text-xl sm:text-2xl lg:text-3xl font-light text-gray-300 mb-6">
-                                    An innovative <span className="font-medium text-white">{resumeData.tagline}</span> from India, passionate about building scalable tech solutions.
+                                <p className="text-xl sm:text-2xl lg:text-3xl font-light text-gray-700 mb-6">
+                                    An innovative <span className="font-medium text-gray-900">{resumeData.tagline}</span> from India, passionate about building scalable tech solutions.
                                 </p>
-                                <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto md:mx-0">
+                                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto md:mx-0">
                                     {resumeData.summary.substring(0, resumeData.summary.indexOf('Selected for Google Cloud Arcade AF’24'))}...
                                 </p>
-                                <a href="#projects" className="inline-block bg-teal-500 hover:bg-teal-600 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105">
+                                <a href="#projects" className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105">
                                     CHECK OUT MY WORK
                                 </a>
                             </div>
 
                             <video
-                                src="YOUR_VIDEO_URL_HERE.mp4" /* IMPORTANT: REPLACE THIS WITH YOUR ACTUAL VIDEO URL! */
+                                src="a.mp4" /* IMPORTANT: REPLACE THIS WITH YOUR ACTUAL VIDEO URL! */
                                 alt="Animated Computer"
                                 className="absolute bottom-16 right-16 z-10 w-64 h-auto opacity-70 hidden md:block lg:w-80"
                                 autoPlay
@@ -197,24 +204,23 @@
                             />
                         </section>
 
-                        <section id="projects" ref={projectsRef} className={`py-20 px-8 md:px-16 bg-gray-800 fade-in-up ${projectsInView ? 'is-in-view' : ''}`}>
+                        {/* Projects Section backgrounds and text adjusted for light theme */}
+                        <section id="projects" ref={projectsRef} className={`py-20 px-8 md:px-16 bg-gray-200 fade-in-up ${projectsInView ? 'is-in-view' : ''}`}>
                             <div className="container mx-auto">
-                                <h2 className="text-4xl font-bold text-center mb-16 text-white relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-teal-400 after:rounded-full">
+                                <h2 className="text-4xl font-bold text-center mb-16 text-gray-800 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-teal-500 after:rounded-full">
                                     Selected Projects
                                 </h2>
                                 <div className="flex flex-wrap justify-center gap-10">
                                     {resumeData.projects.map((project, index) => (
-                                        <div key={index} className="bg-gray-700 rounded-xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:max-w-sm">
+                                        <div key={index} className="bg-white rounded-xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:max-w-sm">
                                             <img src={project.image} alt={project.title} className="w-full h-52 object-cover" />
                                             <div className="p-6 text-center">
-                                                <h3 className="text-2xl font-semibold mb-3 text-white">{project.title}</h3>
-                                                <p className="text-gray-300 text-base mb-4">{project.description}</p>
-                                                {project.link && project.link !== "#" && (
-                                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300 font-medium flex items-center group justify-center">
-                                                        View Project
-                                                        <i className="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-                                                    </a>
-                                                )}
+                                                <h3 className="text-2xl font-semibold mb-3 text-gray-900">{project.title}</h3>
+                                                <p className="text-gray-700 text-base mb-4">{project.description}</p>
+                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:text-teal-600 font-medium flex items-center group justify-center">
+                                                    View Project
+                                                    <i className="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     ))}
@@ -222,16 +228,17 @@
                             </div>
                         </section>
 
-                        <section id="skills" ref={skillsRef} className={`py-20 px-8 md:px-16 bg-gray-900 fade-in-up ${skillsInView ? 'is-in-view' : ''}`}>
+                        {/* Skills Section backgrounds and text adjusted for light theme */}
+                        <section id="skills" ref={skillsRef} className={`py-20 px-8 md:px-16 bg-gray-100 fade-in-up ${skillsInView ? 'is-in-view' : ''}`}>
                             <div className="container mx-auto">
-                                <h2 className="text-4xl font-bold text-center mb-16 text-white relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-teal-400 after:rounded-full">
+                                <h2 className="text-4xl font-bold text-center mb-16 text-gray-800 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-teal-500 after:rounded-full">
                                     My Skills
                                 </h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                                     {Object.entries(resumeData.technicalSkills).map(([category, skills], index) => (
-                                        <div key={index} className="bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                            <h3 className="text-xl font-semibold text-teal-400 mb-4 capitalize">{category.replace(/([A-Z])/g, ' $1')}</h3>
-                                            <ul className="list-disc list-inside text-gray-300">
+                                        <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                            <h3 className="text-xl font-semibold text-teal-500 mb-4 capitalize">{category.replace(/([A-Z])/g, ' $1')}</h3>
+                                            <ul className="list-disc list-inside text-gray-700">
                                                 {skills.map((skill, i) => (
                                                     <li key={i} className="mb-2">{skill}</li>
                                                 ))}
@@ -242,32 +249,33 @@
                             </div>
                         </section>
 
-                        <section id="about" ref={aboutRef} className={`py-20 px-8 md:px-16 bg-gray-800 fade-in-up ${aboutInView ? 'is-in-view' : ''}`}>
+                        {/* About Me Section backgrounds and text adjusted for light theme */}
+                        <section id="about" ref={aboutRef} className={`py-20 px-8 md:px-16 bg-gray-200 fade-in-up ${aboutInView ? 'is-in-view' : ''}`}>
                             <div className="container mx-auto flex flex-col lg:flex-row items-center gap-12">
                                 <div className="lg:w-1/3 flex justify-center">
                                     <img
-                                        src="https://placehold.co/250x250/333333/FFFFFF?text=Alan+Jolly"
+                                        src="https://placehold.co/250x250/E0E0E0/333333?text=Alan+Jolly" /* Adjusted placeholder for light theme */
                                         alt="Alan Jolly Profile"
-                                        className="w-60 h-60 rounded-full object-cover border-4 border-teal-400 shadow-lg"
+                                        className="w-60 h-60 rounded-full object-cover border-4 border-teal-500 shadow-lg"
                                     />
                                 </div>
                                 <div className="lg:w-2/3 text-center lg:text-left">
-                                    <h2 className="text-4xl font-bold mb-6 text-white relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 lg:after:left-0 after:-translate-x-1/2 lg:after:translate-x-0 after:w-20 after:h-1 after:bg-teal-400 after:rounded-full">
+                                    <h2 className="text-4xl font-bold mb-6 text-gray-800 relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 lg:after:left-0 after:-translate-x-1/2 lg:after:translate-x-0 after:w-20 after:h-1 after:bg-teal-500 after:rounded-full">
                                         About Me
                                     </h2>
-                                    <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                                    <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                                         {resumeData.summary}
                                     </p>
 
-                                    <h3 className="text-2xl font-semibold text-white mb-4">Certifications & Achievements</h3>
-                                    <ul className="list-disc list-inside text-gray-300 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">Certifications & Achievements</h3>
+                                    <ul className="list-disc list-inside text-gray-700 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-2">
                                         {resumeData.certifications.map((cert, index) => (
                                             <li key={index}>{cert}</li>
                                         ))}
                                     </ul>
 
-                                    <h3 className="text-2xl font-semibold text-white mb-4">Education</h3>
-                                    <div className="text-gray-300">
+                                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">Education</h3>
+                                    <div className="text-gray-700">
                                         <p className="font-medium text-lg">{resumeData.education.degree}</p>
                                         <p className="text-base">{resumeData.education.college}</p>
                                         <p className="text-sm">{resumeData.education.graduation}</p>
@@ -276,25 +284,27 @@
                             </div>
                         </section>
 
-                        <section id="contact" ref={contactRef} className={`py-20 px-8 md:px-16 bg-gray-900 text-center fade-in-up ${contactInView ? 'is-in-view' : ''}`}>
+                        {/* Contact Section backgrounds and text adjusted for light theme */}
+                        <section id="contact" ref={contactRef} className={`py-20 px-8 md:px-16 bg-gray-100 text-center fade-in-up ${contactInView ? 'is-in-view' : ''}`}>
                             <div className="container mx-auto">
-                                <h2 className="text-4xl font-bold mb-8 text-white">
+                                <h2 className="text-4xl font-bold mb-8 text-gray-800">
                                     Let's build something amazing together.
                                 </h2>
-                                <a href={`mailto:${resumeData.email}`} className="inline-block bg-teal-500 hover:bg-teal-600 text-gray-900 font-bold py-4 px-10 rounded-full shadow-xl transform transition-all duration-300 hover:scale-105 text-xl">
+                                <a href={`mailto:${resumeData.email}`} className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-10 rounded-full shadow-xl transform transition-all duration-300 hover:scale-105 text-xl">
                                     Get in Touch
                                 </a>
-                                <div className="flex justify-center gap-8 mt-12 text-gray-400">
-                                    <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer" className="text-4xl hover:text-teal-400 transition-colors duration-300" title="LinkedIn">
+                                {/* Social links adjusted for light theme */}
+                                <div className="flex justify-center gap-8 mt-12 text-gray-600">
+                                    <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer" className="text-4xl hover:text-teal-500 transition-colors duration-300" title="LinkedIn">
                                         <i className="fab fa-linkedin"></i>
                                     </a>
-                                    <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="text-4xl hover:text-teal-400 transition-colors duration-300" title="GitHub">
+                                    <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="text-4xl hover:text-teal-500 transition-colors duration-300" title="GitHub">
                                         <i className="fab fa-github"></i>
                                     </a>
-                                    <a href={`mailto:${resumeData.email}`} className="text-4xl hover:text-teal-400 transition-colors duration-300" title="Email">
+                                    <a href={`mailto:${resumeData.email}`} className="text-4xl hover:text-teal-500 transition-colors duration-300" title="Email">
                                         <i className="fas fa-envelope"></i>
                                     </a>
-                                    <a href={resumeData.portfolio} target="_blank" rel="noopener noreferrer" className="text-4xl hover:text-teal-400 transition-colors duration-300" title="Portfolio">
+                                    <a href={resumeData.portfolio} target="_blank" rel="noopener noreferrer" className="text-4xl hover:text-teal-500 transition-colors duration-300" title="Portfolio">
                                         <i className="fas fa-globe"></i>
                                     </a>
                                 </div>
@@ -302,7 +312,8 @@
                         </section>
                     </main>
 
-                    <footer className="bg-gray-950 py-8 text-center text-gray-500 text-sm">
+                    {/* Footer backgrounds and text adjusted for light theme */}
+                    <footer className="bg-gray-300 py-8 text-center text-gray-700 text-sm">
                         <p>&copy; {new Date().getFullYear()} {resumeData.name}. All rights reserved.</p>
                     </footer>
                 </div>
